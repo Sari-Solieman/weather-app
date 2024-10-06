@@ -1,0 +1,26 @@
+body {
+    background-color: #F0FFFF;
+    margin: 0;
+}
+
+.search-btn {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.search-btn:hover {
+    background-color: aliceblue
+}
+
+input {
+    border: none;
+}
+
+form {
+    display: flex;
+    flex:  row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}

@@ -8,8 +8,15 @@ const Weather = () => {
     const fetchWeatherData = async (city) => {
         try {
             const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${import.meta.env.VITE_APP_ID}`)
-
-            setWeatherData(response.data);
+            const data = response.data;
+            setWeatherData({
+                humidity: data.main.humidity,
+                windSpeed: data.wind.speed,
+                temperature: Math.floor(data.main.temp),
+                location: data.name,
+                description: data.weather[0].description,
+                icon: data.weather[0].icon
+            });
 
         } catch (error) {
             console.log(error.message);
@@ -22,7 +29,9 @@ const Weather = () => {
     };
 
     useEffect(() => {
-        fetchWeatherData('London')
+        fetchWeatherData('New York')
+        console.log(weatherData);
+
     }, [])
 
     return (
@@ -35,13 +44,16 @@ const Weather = () => {
                         value={city}
                         onChange={(event) => setCity(event.target.value)}
                     />
-                    <button type="submit">Get Weather</button>
+                    <button className="search-btn" type="submit">Get Weather</button>
                 </form>
                 {weatherData && (
                     <div>
-                        <h2>{weatherData.name}</h2>
-                        <p>{weatherData.weather[0].description}</p>
-                        <p>Temperature: {weatherData.main.temp}</p>
+                        <h2>{weatherData.location}</h2>
+                        <p>{weatherData.icon}</p>
+                        <p>{weatherData.description}</p>
+                        <p>Temperature: {weatherData.temperature} °C</p>
+                        <p>Wind Speed: {weatherData.windSpeed} km/h</p>
+                        <p>Humidity: {weatherData.humidity} %</p>
                     </div>
                 )}
             </div>
