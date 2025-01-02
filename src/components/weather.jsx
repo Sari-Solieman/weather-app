@@ -3,6 +3,7 @@ import axios from "axios";
 import { icons } from "../scripts/icons";
 
 const Weather = () => {
+
     const [city, setCity] = useState('');
     const [weatherData, setWeatherData] = useState(null);
 
