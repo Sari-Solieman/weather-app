@@ -14,20 +14,6 @@ body {
     margin: 0;
 }
 
-.search-btn {
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-}
-
-.search-btn:hover {
-    background-color: aliceblue
-}
-
-input {
-    border: none;
-}
-
 form {
     display: flex;
     flex: row;
@@ -39,9 +25,18 @@ form {
 .weather-card {
     display: flex;
     flex-direction: column;
-    gap: 20px;
     align-items: center;
-    background-color: burlywood;
+    gap: 20px;
+    background-color: #87CEEB;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.weather-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
 
 .weather-condition {
@@ -64,4 +59,23 @@ form {
 .temperature {
     font-size: 80px;
     line-height: 1;
+}
+
+input,
+.btn {
+    border: none;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.btn {
+    color: #EDEAF9;
+    background-color: #003664;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #2975A7;
+    ;
 }
